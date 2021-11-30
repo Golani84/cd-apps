@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nginx
+  labels:
+    app3: amircd
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: test
+  template:
+    metadata:
+      labels:
+        app: test
+    spec:
+      containers:
+      - name: nginx
+        image: nginx:1.21.3
+        env:
+        - name: COLOR
+          value: "red"
+        ports:
+        - containerPort: 80
+"nginx-deployment" 24L, 390B
